@@ -1,0 +1,15 @@
+version: '2'
+services:
+  quote-service:
+    container_name: quote-service
+    build:
+      context: docker-quote-service
+      dockerfile: Dockerfile
+    image: spring-quote-service:latest
+    ports:
+      - "8087:8080"
+    networks:
+      - "quote-network"
+networks:
+  quote-network:
+    driver: bridge
